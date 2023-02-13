@@ -1,0 +1,489 @@
+*{
+    margin:0;
+  
+    box-sizing:border-box;
+    letter-spacing: inherit;
+}
+
+html{font-size:62.5%;}
+
+
+body{
+    font-family: 'Open Sans',sans-serif; 
+}
+
+ul,li{
+    list-style-type: none;
+}
+
+button{
+    cursor:pointer;
+}
+
+ion-icon{
+    font-size:18px;
+    color:rgb(77, 77, 77);
+    
+}
+.card{
+   display: none;
+   position: absolute;
+
+   align-items: center;
+   justify-content: center;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: #1a1a1a85;
+   z-index: 10;
+}
+
+.todo-list__app{
+    background-color: #000000;
+    text-align: center;
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+
+
+   
+    
+
+   
+   
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 20px 250px;
+    background-color: #000000;
+}
+
+.header >.heading{
+    font-size:3rem;
+    color: white;
+}
+.btn{
+    padding: 5px 100px;
+    background: #008cff44;
+    border: 2px solid #0026ff;
+    margin-left: 20px;
+}
+span{
+    font-size: 40px;
+    color: #0026ff;
+}
+
+
+
+
+.todo-add-item{
+    display:flex;
+    flex-direction: column;
+    margin-top: 20px;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    background-color: #252525;
+    height: 50vh;
+    
+
+}
+
+.inputItem {
+    width: 80%;
+    border-radius: 4px;
+    border: none;
+    padding: 20px;
+    margin: 20px 0;
+    outline:transparent; 
+
+    
+}
+
+
+.inputItem::placeholder {
+    color:#777777;
+    
+}
+
+input[type="submit"] {
+    border: none;
+    background-color: #0004e7;
+    padding: 20px 0;
+    border-radius: 4px;
+    margin: 20px 0;
+    width: 80%;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(245, 221, 170);
+}
+
+input[type="color"] {
+    width: 80%;
+    height: 150px;
+    padding: 52px;
+    border: 1px solid white;
+    border-radius: 5px;
+
+  }
+
+.todo-list__container{
+    display: flex;
+    justify-content: center;align-items: center;
+    padding: 10px;
+
+
+    flex-wrap: wrap;
+    
+    
+    
+}
+
+#todo-add{
+   
+}
+#todo-list{
+    display: flex;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin: 0;
+    
+
+    
+}
+
+.todo-item {
+    display:grid;
+    width: 260px;
+    height: 150px;
+    border-radius:4px;
+    box-shadow: 2px 2px 8px rgba(27, 27, 27, 0.5);
+    background-color: rgb(27, 27, 27);
+    
+    padding: 10px;
+    margin: 10px ;
+}
+#color{
+    height: 35px;
+    border: 1px solid white;
+      padding: 0;
+      background-color: #fff;
+      cursor: pointer;
+}
+#color:focus{
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+
+
+.button-check:hover{
+    border: 2px solid #0004e7 ;
+}
+.button-check{
+    grid-column: 1/2;
+    opacity: 0;
+    align-self:center;
+    justify-self: center;
+    width:1.5rem;
+    height:1.5rem;
+    border-radius:.2rem;
+    border:2px solid #0004ff;
+    position:relative;
+    outline:transparent;
+    transition: all 1s;
+}
+
+p{
+    font-size: 15px;
+}
+
+.fa-check {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    color:#0004ff;
+     
+}
+
+.fa-check.displayNone{
+    display:none;
+}
+
+
+.task-name{
+    grid-column: 1/5;
+    width: 100%;
+    font-size:15px;
+    font-weight: 600;
+    color: #ffffff;
+    /* background-color:#202020; */
+    padding: 20px;
+
+    
+}
+.daniel{
+    grid-row: 1/2;
+    grid-column: 1/4;
+    margin-top: 10px;
+    width: 100%;
+    text-align: start;
+}
+
+
+
+/*Container que abre ao clicar no icon do lapis para editar tarefa*/
+
+.editContainer{
+    position:absolute;
+    z-index: 100;
+    width:100%;
+    height:10rem;
+    background-color:rgb(29, 29, 29);
+    border-radius:4px;
+    box-shadow: 3px 3px 15px rgba(20, 20, 20, 0.8);
+
+    display:flex;
+    justify-content:center;
+    justify-self: center;
+    align-items: center;
+    display:none;
+}
+
+.editContainer .editInput{
+    background-color:transparent;
+    border:none;
+    border:2px solid #0026ff;
+    border-radius:10px;
+    padding:.5rem 1rem;
+}
+
+.editContainer .editInput:focus{
+    outline:none;
+}
+
+.editContainer .editButton,
+.editContainer .cancelButton {
+    border:none;
+    outline:transparent;
+    padding: 1px;
+
+}
+.editContainer .editButton{
+    background-color: #2f00ff;
+    color: seashell;
+}
+
+.editContainer .cancelButton{
+    background-color: #ff0000;
+    color: seashell;
+}
+
+.editContainer .editButton:hover {
+    background-color: #5c38ff;
+    color: seashell;
+}
+.editContainer .cancelButton:hover{
+    background-color: #fa4b4b;
+    color: seashell;
+}
+/*FIM ---- Container que abre ao clicar no icon do lapis para editar tarefa*/
+
+.fa-trash-alt {
+    grid-column:3/4;
+    grid-row: 2/3;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.fa-edit,
+.fa-trash-alt{
+    outline:none;
+    border:none;
+    background-color:transparent;
+    cursor: pointer;
+    justify-self: center;
+    align-self:center;
+    font-size:1.5rem;
+   
+    
+}
+
+.fa-edit:hover,
+.fa-trash-alt:hover {
+    transform:scale(1.2,1.2);
+     outline:none;
+    border:none;
+}
+
+.fa-trash-alt {
+    color: rgb(4, 0, 255);
+}
+.fa-edit{
+    grid-column: 2/3;  
+    grid-row: 2/3; 
+    color:#2600ff;
+    opacity: 0;
+    transition: all .5s;
+}
+
+
+
+.fa-edit:hover {
+    color:#2bff00;
+}
+
+.fa-trash-alt:hover {
+    color:#c70039;
+}
+
+
+.fa-edit:active,
+.fa-trash-alt:active {
+    transform:scale(1,1);
+    outline:none;
+    border:none;
+}
+
+.da{
+    width: 100%;
+    font-size:15px;
+    font-weight: 600;
+    color: #ffffff;
+    /* background-color:#202020; */
+    padding: 20px;
+    text-decoration: line-through;
+   
+}
+.todo-item:hover 
+.button-check{
+    opacity: 1;
+    transition: all .5s;
+}
+.todo-item:hover 
+.fa-edit{
+    opacity: 1;
+    transition: all .5s;
+}
+.todo-item:hover .fa-trash-alt{
+    opacity: 1;
+    transition: all .5s;
+}
+/* 
+@media screen and ( max-width: 850px ){
+
+    .todo-item {
+        width: 250px
+    }
+    .editContainer {
+        flex-direction: column;
+        border-radius: 10px;
+        width: 40%;
+        height: 15%;
+    
+    }
+    
+    .editContainer .editInput {
+        width: 80%;
+        margin: 0;
+    
+    }
+    
+    .editContainer .editButton {
+        width: 50%;
+        border-radius: 10px;
+    }
+    
+    .editContainer .cancelButton {
+        width: 50%;
+        border-radius: 10px;
+    }
+    
+}
+@media screen and (max-width: 600px) {
+
+
+
+    .todo-item{
+        width: 70vw;
+        text-align: center;
+    }
+    .daniel{
+        width: 100%;
+        
+    }
+    .editContainer{
+        flex-direction: column;
+        border-radius: 10px;
+        width: 50%;
+        height: 15%;
+
+    }
+    .editContainer .editInput{
+        width: 80%;
+        margin: 0;
+      
+    }
+    .editContainer .editButton{
+        width: 50%;
+        border-radius: 10px;
+    }
+    .editContainer .cancelButton{
+        width: 50%;
+        border-radius: 10px;
+    }
+
+}
+@media screen and (max-width: 400px) {
+    .inputItem {
+        width: 60%;
+    
+    }
+    .todo-list__container{
+        padding: 5px;
+    }
+    .todo-item {
+        width: 70vw;
+        text-align: center;
+        
+    }
+    p{
+        font-size: 13px;
+    }
+    
+    
+    .editContainer {
+        flex-direction: column;
+        border-radius: 10px;
+        width: 80%;
+        height: 15%;
+    
+    }
+    
+    .editContainer .editInput {
+        width: 80%;
+        margin: 0;
+    
+    }
+    
+    .editContainer .editButton {
+        width: 50%;
+        border-radius: 10px;
+    }
+    
+    .editContainer .cancelButton {
+        width: 50%;
+        border-radius: 10px;
+    }
+} */
